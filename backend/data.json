@@ -1,4 +1,4 @@
-data = [
+[
     {
         "id": 1,
         "title": "Beetlejuice",
@@ -1453,4 +1453,5 @@ data = [
         "actors": "Louis Wolheim, Lew Ayres, John Wray, Arnold Lucy",
         "plot": "A young soldier faces profound disillusionment in the soul-destroying horror of World War I.",
         "posterUrl": "https://images-na.ssl-images-amazon.com/images/M/MV5BNTM5OTg2NDY1NF5BMl5BanBnXkFtZTcwNTQ4MTMwNw@@._V1_SX300.jpg"
-    },]
+    }
+]
