@@ -84,7 +84,6 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
 }
 .card{
   margin: 20px;
@@ -160,6 +159,9 @@ h2 {
     }
   }
 }
+label {
+  color: whitesmoke;
+}
 .d-flex {
   display: flex;
   
@@ -167,17 +169,25 @@ h2 {
 .space-between {
   justify-content: space-between;
 }
+.space-around {
+  justify-content: space-around;
+}
 @media screen and (min-width: 768px) {
   .wrapper {
     width: 750px;
     justify-content: center;
   }
-
+  .nav {
+    width: 950px;
+  }
 }
 @media screen and (min-width: 992px) {
   .wrapper {
     width: 950px;
     justify-content: space-between;
+  }
+  .nav {
+    width: 950px;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -185,5 +195,20 @@ h2 {
     width: 1280px;
     justify-content: space-between;
   }
+  .nav {
+    width: 1280px;
+  }
 }
-
+.search-bar, select {
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 20px;
+  border-style: none;
+  width: 200px;
+}
+select {
+  width: 100px;
+}
+.nav {
+  width: 100%;
+}

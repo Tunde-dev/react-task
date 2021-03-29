@@ -2,13 +2,38 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Movie from './components/Movie';
 import Loading from './components/Loading';
-import brokenImg from './not-found.svg'
+import SearchBar from './components/SearchBar'
 
 function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [movies, setMovies] = useState([]);
+  const [input, setInput] = useState('');
+  const [canBeSearched, setCanBeSearched] = useState(false);
 
+  const genres =  [
+    "Comedy",
+    "Fantasy",
+    "Crime",
+    "Drama",
+    "Music",
+    "Adventure",
+    "History",
+    "Thriller",
+    "Animation",
+    "Family",
+    "Mystery",
+    "Biography",
+    "Action",
+    "Film-Noir",
+    "Romance",
+    "Sci-Fi",
+    "War",
+    "Western",
+    "Horror",
+    "Musical",
+    "Sport"
+];
 
   useEffect(() => {
     setTimeout(() => {
@@ -28,30 +53,31 @@ function App() {
     },2000)
   }, [])
 
-  const onImageError = (e) => {
-    e.target.onerror = "";
-    e.target.src = brokenImg;
-    return true;
-  }
   
+
   return (
     <div className="App">
       <header className="App-header">
+        <div className="d-flex space-around nav">
+          <SearchBar 
+            input={input}
+            setInput={setInput}
+            setCanBeSearched={setCanBeSearched}
+          />
+          <div>
+            <label htmlFor="genres">Choose a genre: </label>
+            <select name="genres" id="genres">
+              {genres.map(genre => <option value={genre.toLowerCase()}>{genre}</option>)}
+            </select>
+          </div>
+        </div>
         <h1>The 100 of movies</h1>
       </header>
       <main>
-        <div class="wrapper">
-          {isLoaded 
-          ? movies.map((movie, index) => {
-          return (
-            <div class="card">
-              <img src={movie.posterUrl} alt={movie.title} onError={onImageError}/>
-              <div class="descriptions">
-                <Movie movie={movie} key={index}/>
-              </div>
-            </div>
-          )}) 
-          : <Loading/>}  
+        <div className="wrapper">
+          {canBeSearched && movies.filter(movie => movie.title.toLowerCase().includes(input.toLowerCase())).map((movie => <Movie movie={movie}/>))}
+          {isLoaded && !canBeSearched && movies.map(movie => <Movie movie={movie}/>)}
+          {!isLoaded && <Loading/>}  
         </div>
       </main>
     </div>

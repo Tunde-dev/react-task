@@ -160,6 +160,10 @@ h2 {
   transition: all 0.5s ease-in-out;
 }
 
+label {
+  color: whitesmoke;
+}
+
 .d-flex {
   display: flex;
 }
@@ -168,10 +172,18 @@ h2 {
   justify-content: space-between;
 }
 
+.space-around {
+  justify-content: space-around;
+}
+
 @media screen and (min-width: 768px) {
   .wrapper {
     width: 750px;
     justify-content: center;
+  }
+
+  .nav {
+    width: 950px;
   }
 }
 @media screen and (min-width: 992px) {
@@ -179,12 +191,35 @@ h2 {
     width: 950px;
     justify-content: space-between;
   }
+
+  .nav {
+    width: 950px;
+  }
 }
 @media screen and (min-width: 1280px) {
   .wrapper {
     width: 1280px;
     justify-content: space-between;
   }
+
+  .nav {
+    width: 1280px;
+  }
+}
+.search-bar, select {
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 20px;
+  border-style: none;
+  width: 200px;
+}
+
+select {
+  width: 100px;
+}
+
+.nav {
+  width: 100%;
 }
 
 /*# sourceMappingURL=App.css.map */
