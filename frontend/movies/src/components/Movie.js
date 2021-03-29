@@ -10,7 +10,7 @@ const Movie = ({movie, key}) => {
     return (
         <div key={key}>
             <h2>{movie.title}</h2>
-            <div>
+            <div className="d-flex space-between">
                 <h3>Year: {movie.year}</h3>
                 <h3>Runtime: {movie.runtime}</h3>
             </div>

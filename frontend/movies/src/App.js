@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Movie from './components/Movie';
 import Loading from './components/Loading';
-import brokenImg from './broken-img.png'
+import brokenImg from './not-found.svg'
 
 function App() {
   const [error, setError] = useState(null);
