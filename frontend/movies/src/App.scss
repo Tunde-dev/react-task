@@ -7,6 +7,7 @@
 $width: 15px;
 $height: 15px;
 $bounce_height: 30px;
+$base-color: #fbae17;
 
 body {
   background-color: #09203f;
@@ -27,6 +28,9 @@ h1 {
 h2 {
   font-family: 'Kiwi Maru', serif;
 }
+h4 {
+  color: $base-color;
+}
 .wrap {
   position: absolute;
   top: 50%;
@@ -35,7 +39,7 @@ h2 {
 }
 
 .text {
-  color: #fbae17;
+  color: $base-color;
   display: inline-block;
   margin-left: 5px;
   font-size: 25px;
@@ -54,7 +58,7 @@ h2 {
     width: $width;
     height: $height;
     border-radius: 50%;
-    background-color: #fbae17;
+    background-color: $base-color;
     transform-origin: 50%;
     animation: bounce 500ms alternate infinite ease;
   }
@@ -133,7 +137,7 @@ h2 {
     filter: blur(3px);
   }
   h1{
-      color: #fbae17;
+      color: $base-color;
       letter-spacing: 1px;
       margin: 0px;
   }
@@ -147,7 +151,7 @@ h2 {
     cursor: pointer;
     margin-bottom: 10px;
     border-style: none;
-    background-color: #fbae17;
+    background-color: $base-color;
     color:#fff;
     font-size: 15px;
     outline: none;
@@ -205,9 +209,9 @@ label {
   border-radius: 20px;
   border-style: none;
   width: 200px;
-}
-select {
-  width: 100px;
+  &:focus {
+    outline: none;
+  }
 }
 .nav {
   width: 100%;

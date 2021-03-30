@@ -26,6 +26,10 @@ h2 {
   font-family: "Kiwi Maru", serif;
 }
 
+h4 {
+  color: #fbae17;
+}
+
 .wrap {
   position: absolute;
   top: 50%;
@@ -213,9 +217,8 @@ label {
   border-style: none;
   width: 200px;
 }
-
-select {
-  width: 100px;
+.search-bar:focus, select:focus {
+  outline: none;
 }
 
 .nav {

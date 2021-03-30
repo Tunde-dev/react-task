@@ -5,11 +5,10 @@ import Loading from './components/Loading';
 import SearchBar from './components/SearchBar'
 
 function App() {
-  const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [movies, setMovies] = useState([]);
   const [input, setInput] = useState('');
-  const [canBeSearched, setCanBeSearched] = useState(false);
+  const [genre, setGenre] = useState('');
 
   const genres =  [
     "Comedy",
@@ -47,13 +46,15 @@ function App() {
         },
         (error) => {
           setIsLoaded(true);
-          setError(error);
+          console.log(error)
         }
       )
     },2000)
   }, [])
 
-  
+  const onChangeHandler = (e) => {
+    setGenre(e.target.value)
+  }
 
   return (
     <div className="App">
@@ -62,12 +63,11 @@ function App() {
           <SearchBar 
             input={input}
             setInput={setInput}
-            setCanBeSearched={setCanBeSearched}
           />
           <div>
-            <label htmlFor="genres">Choose a genre: </label>
-            <select name="genres" id="genres">
-              {genres.map(genre => <option value={genre.toLowerCase()}>{genre}</option>)}
+            <select name="genres" id="genres" onChange={onChangeHandler}>
+              <option>Choose a genre</option>
+              {genres.map(genre => <option value={genre}>{genre}</option>)}
             </select>
           </div>
         </div>
@@ -75,8 +75,14 @@ function App() {
       </header>
       <main>
         <div className="wrapper">
-          {canBeSearched && movies.filter(movie => movie.title.toLowerCase().includes(input.toLowerCase())).map((movie => <Movie movie={movie}/>))}
-          {isLoaded && !canBeSearched && movies.map(movie => <Movie movie={movie}/>)}
+          {isLoaded 
+            && movies.filter(movie => {
+              if (genre && !movie.genres.includes(genre)) {
+                return false;
+              }
+              return input.length > 2 ? movie.title.toLowerCase().includes(input.toLowerCase()) : true
+            })
+            .map(movie => <Movie movie={movie} key={movie.id}/>)}
           {!isLoaded && <Loading/>}  
         </div>
       </main>

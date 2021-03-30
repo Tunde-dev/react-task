@@ -1,14 +1,9 @@
 import React from 'react';
 
-const SearchBar = ({input, setInput, setCanBeSearched, setIsLoaded}) => {
+const SearchBar = ({input, setInput}) => {
   
   const searchHandler = (e) => {
     setInput(e.target.value)
-    if (e.target.value.length > 3) {
-      setCanBeSearched(true)
-    }else{
-      setCanBeSearched(false)
-    }
   }
 
   return (
