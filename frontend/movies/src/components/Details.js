@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Details = ({movie}) => {
+const Details = ({movie,key}) => {
     return (
-        <div key={movie.id}>
+        <div key={key}>
             <h4>Director: {movie.director}</h4>
             <h4>Actors: {movie.actors}</h4>
             <p>{movie.plot}</p>

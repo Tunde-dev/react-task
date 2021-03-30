@@ -10,7 +10,6 @@ const SearchBar = ({input, setInput}) => {
     <input 
       className="search-bar"
       type="search" 
-      id="mySearch" 
       placeholder="Find movie..."
       value={input}
       onChange={(e)=>searchHandler(e)}

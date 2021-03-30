@@ -16,17 +16,19 @@ const Movie = ({movie}) => {
     }
 
     return (
-      <div className="card" key={movie.id}>
+      <div className="card">
         <img src={movie.posterUrl} alt={movie.title} onError={onImageError}/>
-        <div className="descriptions" key={movie.id}>
+        <div className="descriptions">
           <h2>{movie.title}</h2>
           <div className="d-flex space-between">
-              <h3>Year: {movie.year}</h3>
-              <h3>Runtime: {movie.runtime}</h3>
+            <h3>Year: {movie.year}</h3>
+            <h3>Runtime: {movie.runtime}</h3>
           </div>
-          <div>Genre: {movie.genres.map(genre => <span>{genre} </span>)}</div> 
+          <div>
+            Genre: {movie.genres.join(', ')}
+          </div>
           <button className="show-more" onClick={showMoreHandler}>{showMore ? "Show Less" : "Show More"}</button>
-          {showMore && <Details movie={movie} />}
+          {showMore && <Details movie={movie} key={movie.key}/>}
       </div>
     </div>
   )

@@ -32,7 +32,7 @@ function App() {
     "Horror",
     "Musical",
     "Sport"
-];
+  ];
 
   useEffect(() => {
     setTimeout(() => {
@@ -42,8 +42,7 @@ function App() {
         (result) => {
           setMovies(result);
           setIsLoaded(true);
-          console.log(result)
-        },
+          },
         (error) => {
           setIsLoaded(true);
           console.log(error)
@@ -71,7 +70,7 @@ function App() {
             </select>
           </div>
         </div>
-        <h1>The 100 of movies</h1>
+        <h1>100 Movies</h1>
       </header>
       <main>
         <div className="wrapper">
@@ -82,7 +81,7 @@ function App() {
               }
               return input.length > 2 ? movie.title.toLowerCase().includes(input.toLowerCase()) : true
             })
-            .map(movie => <Movie movie={movie} key={movie.id}/>)}
+            .map(movie => <Movie movie={movie}/>)}
           {!isLoaded && <Loading/>}  
         </div>
       </main>
